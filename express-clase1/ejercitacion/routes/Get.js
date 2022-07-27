@@ -10,9 +10,9 @@ const router = express.Router();
  ************************************************************/
 // Tu código acá
 
-
-
-
+router.get("/", (req, res) => {
+  res.send("¡Hola mundo!");
+});
 
 /*************************************************************
 	EXTRA
@@ -22,11 +22,15 @@ const router = express.Router();
 	http://localhost:3000/api/products
  *************************************************************/
 // Tu código acá
-let products;
+let products = [
+  { name: "Pendrive", price: 10, id: 1 },
+  { name: "Headset", price: 50, id: 2 },
+  { name: "Mouse", price: 20, id: 3 },
+];
 
-
-
-
+router.get("/products", (req, res) => {
+  res.send({products});
+});
 
 //expressjs.com/es/starter/hello-world.html
 module.exports = { router, products };
